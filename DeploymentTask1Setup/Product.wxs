@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="Calculator Setup" Language="1033" Version="1.0.2.0"
+			 Manufacturer="SwinburneStudent" UpgradeCode="{79A2EFBA-0BD2-460E-AF7E-F68C914312F9}">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="SampleApp" />
+			</Directory>
+		</Directory>
+
+		<DirectoryRef Id="INSTALLFOLDER">
+			<Component Id="MainExecutable" Guid="{9B8907DE-7D07-4DC9-AA26-29A4AE8A739D}">
+				<File Id="SampleAppEXE" Source="$(var.DeploymentTask1fixed.TargetPath)" KeyPath="yes" />
+			</Component>
+			<Component Id="CalculatorLibraryDLL" Guid="{A91A9FDA-E43C-40B8-8F0E-3D25A10905CE}">
+				<File Id="CalculatorLibraryDLL" Source="$(var.CalculatorLibrary.TargetPath)" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+
+		<Feature Id="ProductFeature" Title="CalculatorSetup" Level="1">
+			<ComponentRef Id="MainExecutable" />
+			<ComponentRef Id="CalculatorLibraryDLL" />
+		</Feature>
+	</Product>
+</Wix>

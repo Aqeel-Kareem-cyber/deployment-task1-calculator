@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CalculatorLibrary/CalculatorLibrary.csproj" Id="b293756f-ed48-4fee-aa8c-ee5df1364b80" />
+  <Project Path="DeploymentTask1fixed/DeploymentTask1fixed.csproj" Id="7eef3d2d-6ac2-4807-98c3-9c4115fbd39b" />
+  <Project Path="DeploymentTask1Setup/DeploymentTask1Setup.wixproj" Id="d2da54fe-a954-406e-972c-399c4ab372d1">
+    <Platform Project="x86" />
+    <Build />
+  </Project>
+</Solution>
